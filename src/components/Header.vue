@@ -1,0 +1,18 @@
+<template>
+  <header class="text-center bg-brightRedlight text-white p-6 mb-10">
+    <div class="text-4xl md:text-5xl font-bold">
+      <i class="fa fa-viruses"></i>
+      Covid-19 Tracker
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'Header',
+  components: {
+    
+  }
+}
+</script>
+
