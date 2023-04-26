@@ -21,6 +21,7 @@ const dataStore = defineStore({
                 this.dataDate = data.Date;
                 this.stats = data.Global;
                 this.countries = data.Countries;
+                this.selectedCountry = 0;
             }catch(err){
               console.log(err);
             }

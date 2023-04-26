@@ -1,8 +1,9 @@
 <template>
-    <main v-if="!covidStore.loading">
+    <div v-if="!covidStore.loading">
       <DataTitle/>
-      <DataBoxes/>                
-    </main>
+      <DataBoxes/>  
+      <CountrySelect/>                      
+    </div>
 
     <main v-else class="flex flex-col align-center justify-center text-center">
       <div class="text-gray-500 text-3xl mt-10 mb-6">
@@ -17,12 +18,14 @@
 import dataStore from '../store/storeIndex.js'
 import DataTitle from '../components/DataTitle.vue'
 import DataBoxes from '../components/DataBoxes.vue'
+import CountrySelect from '../components/CountrySelect.vue'
 
 export default {
   name: 'Home',
   components: {
     DataTitle,
-    DataBoxes
+    DataBoxes,
+    CountrySelect
 },
   data(){
     const covidStore = dataStore();
