@@ -1,6 +1,7 @@
 <template>
     <main v-if="!covidStore.loading">
-      {{covidStore.title}}      
+      <DataTitle/>
+      <DataBoxes/>                
     </main>
 
     <main v-else class="flex flex-col align-center justify-center text-center">
@@ -14,9 +15,15 @@
 
 <script>
 import dataStore from '../store/storeIndex.js'
+import DataTitle from '../components/DataTitle.vue'
+import DataBoxes from '../components/DataBoxes.vue'
 
 export default {
   name: 'Home',
+  components: {
+    DataTitle,
+    DataBoxes
+},
   data(){
     const covidStore = dataStore();
     return { covidStore };
