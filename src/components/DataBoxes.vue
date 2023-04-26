@@ -1,7 +1,7 @@
 <template>
     <div class="grid md:grid-cols-2 gap-4">
         <!-- Box1 -->
-        <div class="shadow-md bg-veryPaleRed p-10 text-center rounded-md">
+        <div class="shadow-md bg-brightRedSupLight p-10 text-center rounded-md">
             <h3 class="text-3xl font-bold mb-4">
                 Cases
             </h3>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- Box2 -->
-        <div class="shadow-md bg-veryPaleRed p-10 text-center rounded-md">
+        <div class="shadow-md bg-brightRedlight p-10 text-center rounded-md">
             <h3 class="text-3xl font-bold mb-4">
                 Deaths
             </h3>

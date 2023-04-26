@@ -11,6 +11,7 @@ const dataStore = defineStore({
         stats:{},
         countries:[],
         loadingImage,
+        selectedCountry:'',
     }),
     actions: {
         async fetchCovidData() {
@@ -20,8 +21,8 @@ const dataStore = defineStore({
                 this.loading = false;
                 this.dataDate = data.Date;
                 this.stats = data.Global;
+                this.global = data.Global;
                 this.countries = data.Countries;
-                this.selectedCountry = 0;
             }catch(err){
               console.log(err);
             }
@@ -29,7 +30,32 @@ const dataStore = defineStore({
         
         numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+        },
+
+        changeCountry(country){
+            this.title = country;
+            this.selectedCountry = country;
+            if (country === 'Global'){
+                this.stats = this.global;
+            } else {
+                this.stats = this.countries.find(object => object.Country === country);
+            }
+        },
+
+        async getLatestData(){
+            try{
+                const response = await fetch('https://api.covid19api.com/summary');
+                const data = await response.json();
+                this.dataDate = data.Date;
+                this.stats = data.Global;
+                this.global = data.Global;
+                this.countries = data.Countries;
+                this.title = 'Global';
+                this.selectedCountry = 'Global';
+            }catch(err){
+              console.log(err);
+            }
+        },
     },
     getters: {
         getTime () {
